@@ -1,0 +1,20 @@
+{% extends "organizer/base_organizer.html" %}
+
+{% block title %}
+Create a Start up
+{% endblock title %}
+
+{% block content %}
+<div>
+	<div>
+		<form action = "{{ newslink.get_update_url }}" method='POST'>
+			{% csrf_token %}
+			{{ form.as_p }}
+
+			<button type="Submit">
+				Update News Link
+			</button>
+		</form>
+	</div>
+</div>
+{% endblock content %}

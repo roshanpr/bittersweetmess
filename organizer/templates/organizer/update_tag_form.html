@@ -1,0 +1,22 @@
+{% extends "organizer/base_organizer.html" %}
+
+{% block title %}
+	Update Tag Form
+{% endblock title %}
+
+{% block content %}
+
+<div>
+	<div>
+		<form action = "{{ tag.get_udpdate_url }}" method ='POST'>
+			{% csrf_token %}
+			{{ form.as_p }}
+			<button type='Submit'>
+				Update
+			</button>
+
+		</form>
+	</div>
+</div>
+
+{% endblock content %}

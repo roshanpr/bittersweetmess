@@ -1,0 +1,21 @@
+{% extends "blog/base_blog.html" %}
+
+{% block title %}
+Create a Start up
+{% endblock title %}
+
+{% block content %}
+<div>
+	<div>
+
+		<form action= "{{ post.get_update_url }}" method='POST'>
+			{% csrf_token %}
+			{{ form.as_p }}
+
+			<button type="Submit">
+				Update Blog
+			</button>
+		</form>
+	</div>
+</div>
+{% endblock content %}

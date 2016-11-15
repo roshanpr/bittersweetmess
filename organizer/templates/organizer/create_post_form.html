@@ -1,0 +1,20 @@
+{% extends "organizer/base_organizer.html " %}
+
+{% block title %}
+Create a Start up
+{% endblock title %}
+
+{% block content %}
+<div>
+	<div>
+		<form action = "{% url 'organizer_create_post' %}" method='POST'>
+			{% csrf token %}
+			{{ form.as_p }}
+
+			<button type="Submit">
+				Create Article
+			</button>
+		</form>
+	</div>
+</div>
+{% endblock content %}

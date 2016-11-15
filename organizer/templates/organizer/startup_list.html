@@ -1,0 +1,47 @@
+{% extends "organizer/base_organizer.html" %}
+
+{% block title %}
+Startup List
+{% endblock title%}
+
+{% block content %}
+  <ul>
+    <h3>Start ups</h3>
+    
+
+
+   <p>
+      Page {{ startup_list.number }}
+      of  {{ paginator.num_pages }}
+    </p>
+
+    {% for startup in startup_list %}
+      <li>
+        <a href="{{ startup.get_absolute_url }}">
+          {{ startup.name }}</a>
+      </li>
+    {% empty %}
+      <li><em>No Startups Available</em></li>
+    {% endfor %}
+
+  {% if is_paginated %}
+        <p>
+        {% if startup_list.has_previous %}
+        <li>
+        <a href="?page={{ startup_list.previous_page_number }}" > Previous </a>
+      </li>
+        {% endif %}
+        
+        {% if startup_list.has_next %}
+         <a href="?page={{startup_list.next_page_number }}"> Next </a>
+         {% endif %}
+      </ul>
+    </p>
+  {% endif %}
+
+  <div>
+    <a href="{%url 'organizer_create_startup' %}">
+      Create New Start up
+    </a>
+  </div>
+{% endblock content %}
