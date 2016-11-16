@@ -30,12 +30,9 @@ class TagForm(forms.ModelForm):
 
 class StartupForm(forms.ModelForm):
 
-	
-
 	class Meta:
 		model = Startup
 		fields = '__all__'
-
 
 
 	def clean_name(self):
